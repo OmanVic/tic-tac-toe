@@ -1,0 +1,297 @@
+/*
+ Creating a tic tac toe in c#
+
+TODO
+
+1.  Create the display ------ DONE
+
+2.  Create players and their specific input
+
+3.  Create a mechanism for players to input their value then switch player
+
+4. Create mechanism tpo check if a user has won or there is a draw.
+
+5.  Create mechanism for ending the game or starting a new game.
+
+
+
+
+ */
+using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography.X509Certificates;
+
+namespace tic_tac_toe
+{
+    internal class Program
+    {
+        public static char[,] displayElement = {
+            {'1', '2', '3'},
+            {'4', '5', '6'},
+            {'7', '8', '9' }
+        };
+
+        public static char[] playerOPtion = { 'X', 'O' };
+        public static bool gameOn = true;
+        public static char playerInput = ' ';
+        public static char[] permittedPlayerInput = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+
+        public static string[] players = { "Player 1", "Player 2" };
+
+        public static String player = players[0];
+        public static char newIput = playerOPtion[0];
+        public static int count = 0;
+
+
+
+
+        static void Main(string[] args)
+        {
+            Player();
+        }
+
+        public static void DisplayArea()
+        {
+
+            Console.WriteLine("-------------------------");
+            Console.WriteLine($"|       |       |       |");
+            Console.WriteLine($"|   {displayElement[0,0]}   |   {displayElement[0, 1]}   |   {displayElement[0, 2]}   |");
+            Console.WriteLine($"|       |       |       |");
+            Console.WriteLine("-------------------------");
+            Console.WriteLine($"|       |       |       |");
+            Console.WriteLine($"|   {displayElement[1, 0]}   |   {displayElement[1, 1]}   |   {displayElement[1, 2]}   |");
+            Console.WriteLine($"|       |       |       |");
+            Console.WriteLine("-------------------------");
+            Console.WriteLine($"|       |       |       |");
+            Console.WriteLine($"|   {displayElement[2, 0]}   |   {displayElement[2, 1]}   |   {displayElement[2, 2]}   |");
+            Console.WriteLine($"|       |       |       |");
+            Console.WriteLine("-------------------------");
+        }
+
+        public static void Player()
+        {
+           /*
+            -- Game start
+           __ Player 1 plays
+           __ update on the ui
+           __player 2 ias ask to play
+           __ updte on th ui
+           __ player 1 is then ask to play again
+            */
+
+            do
+            {
+                Console.Clear();
+
+                DisplayArea();
+                Win();
+
+
+
+                Console.WriteLine("Choose a number available in the above to play");
+
+                playerInput = Console.ReadLine()[0];
+                
+                if (permittedPlayerInput.Contains(playerInput))
+                {
+                    if (playerInput == '1' && (displayElement[0, 0] != 'X' && displayElement[0, 0] != 'O'))
+                    {
+
+                        displayElement[0, 0] = newIput;
+
+                        if (player == players[0])
+                        {
+                            player = players[1];
+                            newIput = playerOPtion[1];
+                           
+                        }
+                        else if (player == players[1])
+                        {
+                            player = players[0];
+                            newIput = playerOPtion[0];
+                            
+                        }
+
+
+                    }
+
+                    else if (playerInput == '2' && (displayElement[0, 1] != 'X' && displayElement[0, 1] != 'O'))
+                    {
+                        displayElement[0, 1] = newIput;
+
+                        if (player == players[0])
+                        {
+                            player = players[1];
+                            newIput = playerOPtion[1];
+                            
+                        }
+                        else if (player == players[1])
+                        {
+                            player = players[0];
+                            newIput = playerOPtion[0];
+                            
+                        }
+
+                    }
+                    else if (playerInput == '3' && (displayElement[0, 2] != 'X' && displayElement[0, 2] != 'O'))
+                    {
+                        displayElement[0, 2] = newIput;
+
+                        if (player == players[0])
+                        {
+                            player = players[1];
+                            newIput = playerOPtion[1];
+                            
+                        }
+                        else if (player == players[1])
+                        {
+                            player = players[0];
+                            newIput = playerOPtion[0];
+                            
+                        }
+
+                    }
+                    else if (playerInput == '4' && (displayElement[1, 0] != 'X' && displayElement[1, 0] != 'O'))
+                    {
+                        displayElement[1, 0] = newIput;
+
+                        if (player == players[0])
+                        {
+                            player = players[1];
+                            newIput = playerOPtion[1];
+                            
+                        }
+                        else if (player == players[1])
+                        {
+                            player = players[0];
+                            newIput = playerOPtion[0];
+                            
+                        }
+
+                    }
+                    else if (playerInput == '5' && (displayElement[1, 1] != 'X' && displayElement[1, 1] != 'O'))
+                    {
+                        displayElement[1, 1] = newIput;
+
+                        if (player == players[0])
+                        {
+                            player = players[1];
+                            newIput = playerOPtion[1];
+                            
+                        }
+                        else if (player == players[1])
+                        {
+                            player = players[0];
+                            newIput = playerOPtion[0];
+                            
+                        }
+
+                    }
+                    else if (playerInput == '6' && (displayElement[1, 2] != 'X' && displayElement[1, 2] != 'O'))
+                    {
+                        displayElement[1, 2] = newIput;
+
+                        if (player == players[0])
+                        {
+                            player = players[1];
+                            newIput = playerOPtion[1];
+                            
+                        }
+                        else if (player == players[1])
+                        {
+                            player = players[0];
+                            newIput = playerOPtion[0];
+                            
+                        }
+
+                    }
+                    else if (playerInput == '7' && (displayElement[2, 0] != 'X' && displayElement[2, 0] != 'O'))
+                    {
+                        displayElement[2, 0] = newIput;
+
+                        if (player == players[0])
+                        {
+                            player = players[1];
+                            newIput = playerOPtion[1];
+                            
+                        }
+                        else if (player == players[1])
+                        {
+                            player = players[0];
+                            newIput = playerOPtion[0];
+                            
+                        }
+
+                    }
+                    else if (playerInput == '8' && (displayElement[2, 1] != 'X' && displayElement[2, 1] != 'O'))
+                    {
+                        displayElement[2, 1] = newIput;
+
+                        if (player == players[0])
+                        {
+                            player = players[1];
+                            newIput = playerOPtion[1];
+                            
+                        }
+                        else if (player == players[1])
+                        {
+                            player = players[0];
+                            newIput = playerOPtion[0];
+                            
+                        }
+
+                    }
+                    else if (playerInput == '9' && (displayElement[2, 2] != 'X' && displayElement[2, 2] != 'O'))
+                    {
+                        displayElement[2, 2] = newIput;
+
+                        if (player == players[0])
+                        {
+                            player = players[1];
+                            newIput = playerOPtion[1];
+                            
+                        }
+                        else if (player == players[1])
+                        {
+                            player = players[0];
+                            newIput = playerOPtion[0];
+                            
+                        }
+
+                    }
+
+
+                }
+
+            } while (gameOn);
+        }
+
+        public static void Win()
+        {
+           foreach (char option in playerOPtion)
+            {
+                if ((displayElement[0, 0] == option && displayElement[0, 1] == option && displayElement[0, 2] == option) ||
+                    (displayElement[1, 0] == option && displayElement[1, 1] == option && displayElement[1, 2] == option) ||
+                    (displayElement[2, 0] == option && displayElement[2, 1] == option && displayElement[2, 2] == option) ||
+                    (displayElement[0, 0] == option && displayElement[1, 0] == option && displayElement[2, 0] == option) ||
+                    (displayElement[0, 1] == option && displayElement[1, 1] == option && displayElement[2, 1] == option) ||
+                    (displayElement[0, 2] == option && displayElement[1, 2] == option && displayElement[2, 2] == option) ||
+                    (displayElement[0, 0] == option && displayElement[1, 1] == option && displayElement[2, 2] == option) ||
+                    (displayElement[0, 2] == option && displayElement[1, 1] == option && displayElement[2, 0] == option) 
+                    )
+                {
+                    Console.WriteLine("You Win");
+
+                }
+                else if (count == 9)
+                {
+                    Console.WriteLine("Draw");
+                }
+
+            }
+        }
+
+    }
+}
+
+
+
